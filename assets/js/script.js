@@ -43,8 +43,7 @@ function init() {
 
 // Adds event listener to start quiz and timer on button click
 
-startButton.addEventListener("click", countdown());
-
+startButton.addEventListener("click", 
 // Timer function
 function countdown() {
   var timeInterval = setInterval(function () {
@@ -56,7 +55,7 @@ function countdown() {
       timerElement.textContent = "TIME'S UP!";
     }
   }, 1000);
-}
+});
 
 function startQuiz() {
 
