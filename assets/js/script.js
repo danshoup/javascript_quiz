@@ -31,13 +31,14 @@ var questionsAll = [
 
 // Variables
 var timerElement = document.getElementById("timer-count");
-var startButton = document.querySelector("#start-button");
+var startButton = document.getElementById("start-button");
 var quizQuestions = document.querySelector("#questions");
 var multipleChoice = document.querySelector(".choices");
-var timeLeft = 10;
+var timeLeft = 76;
 
-
-function countdown() {
+// Adds event listener to start quiz and timer on button click
+startButton.addEventListener("click", 
+  function countdown() {
   var timeInterval = setInterval(function () {
     timeLeft--;
     timerElement.textContent = timeLeft + " seconds";
@@ -47,7 +48,5 @@ function countdown() {
       timerElement.textContent = "TIME'S UP!";
     }
   }, 1000);
-}
+});
 
-// Adds event listener to start quiz and timer on button click
-startButton.addEventListener("click", countdown());
