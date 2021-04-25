@@ -1,5 +1,5 @@
 :root {
-  --ivory: ivory;
+  --white: antiquewhite;
   --blue: blue;
 }
 
@@ -30,47 +30,21 @@
 
   main {
     margin: 0 auto;
+    border: solid;
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 200px;
-    border: solid;
+    height: 100%;
     padding: 10px;
     justify-content: center;
   }
   
-  hr {
-    width: 50%;
-    text-align: center;
-  }
-
-  .quizCard {
-  }
-
 
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 100%;
+  h2{
+    font-size: 1.5rem;
   }
   
-  input,
-  select,
-  option,
-  optgroup,
-  textarea,
-  button,
-  pre,
-  code {
-    font-size: 100%;
-    font-family: inherit;
-  }
-  
-  ol,
   ul {
     list-style: none;
   }
-  
