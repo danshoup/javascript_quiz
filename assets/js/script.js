@@ -36,9 +36,17 @@ var quizQuestions = document.querySelector("#questions");
 var multipleChoice = document.querySelector(".choices");
 var timeLeft = 76;
 
+
+function init() {
+
+}
+
 // Adds event listener to start quiz and timer on button click
-startButton.addEventListener("click", 
-  function countdown() {
+
+startButtona.addEventListener("click", countdown());
+
+// Timer function
+function countdown() {
   var timeInterval = setInterval(function () {
     timeLeft--;
     timerElement.textContent = timeLeft + " seconds";
@@ -48,5 +56,7 @@ startButton.addEventListener("click",
       timerElement.textContent = "TIME'S UP!";
     }
   }, 1000);
-});
+}
 
+
+init();
