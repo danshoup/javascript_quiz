@@ -30,16 +30,19 @@ var questionsAll = [
 ];
 
 // Variables
-var score = 0;
-var questionIndex = 0;
 var timerElement = document.querySelector("#timer-count");
 var startButton = document.querySelector("#start-button");
 var quizQuestions = document.querySelector("#questions");
 var multipleChoice = document.querySelector(".choices");
-var timer; 
-var timerCount;
 
-// Adds event listener to start quiz and timer
+// Adds event listener to start quiz and timer on button click
 startButton.addEventListener("click", function() {
-
+  timerElement--;
+  timerElement.textContent = timerElement
 })
+
+// Add the setTimer function to start and stop the timer
+function startTimer() {
+
+}
+// Shit.  Not done.  Will finish tomorrow.
