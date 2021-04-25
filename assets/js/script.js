@@ -33,39 +33,26 @@ var questionData = [
 
 
 
-// Timer element from HTML; shows in upper right corner
 var timerElement = document.querySelector("#timer-count");
-// Start button shows on page load;
 var startButton = document.querySelector("#start-button");
-// The div for the questions and multiple choice
 var quizBox = document.querySelector(".questionBox");
-// The UL for the multiple choice list
-var choiceList = document.querySelector(".choices");
-// p container in document to display question from question array
 var quizQuestions = document.querySelector("#questions");
-// UL container in document to create list items from choice array
 var multipleChoice = document.querySelector(".choices");
-//  Variable to tell what the timer should start at
+var listItems = document.querySelector(".items");
 var timeLeft = 76;
-// Variable to choose for starting index of questions array
-var questionIndex = 2;
+var questionIndex = 0;
 
-//  This function is called when the page loads
-function init() {
-
-}
 
 // Adds event listener to start quiz and timer on button click
 startButton.addEventListener("click", 
-// Timer function set to stop running when reaching 0;
+// Timer function set, and stops running when reaching 0;
 function countdown() {
+  startButton.style.display = "none";
   var timeInterval = setInterval(function () {
     timeLeft--;
     timerElement.textContent = timeLeft + " seconds";
-    startButton.style.display = "none";
-   
-
-    if (timeLeft === 0) {
+    
+       if (timeLeft === 0) {
       clearInterval(timeInterval);
       timerElement.textContent = "TIME'S UP!";
     }
@@ -75,12 +62,35 @@ function countdown() {
 
 });
 
-function startQuiz() {
-  var currentQuestion = questionData[questionIndex];
-  quizQuestions.textContent = currentQuestion.question;
-  multipleChoice.textContent = currentQuestion.choice;
-  console.log (questionData[4]);
+function getQuestion() {
+  
 }
 
 
-init();
+function startQuiz() {
+
+  // Current question is the index of the question that will be displayed from the question array
+  var currentQuestion = questionData[questionIndex];
+  // Changes text content in the quizBox to current index question
+  quizQuestions.textContent = currentQuestion.question;
+  makeChoiceList();
+  // Displays multiple choices from the current question index
+  function makeChoiceList(choiceData) {
+    var choiceData = questionData[questionIndex].choice;
+    var list = document.createElement("ul");
+    for (var j = 0; j < choiceData.length; j++) {
+      var item = document.createElement("li");
+      item.appendChild(document.createTextNode(choiceData[j]));
+      list.appendChild(item);
+    }
+    return list;
+  }
+  
+  quizBox.appendChild(makeChoiceList());
+
+  console.log (currentQuestion.question);
+  console.log (currentQuestion.choice);
+  console.log (currentQuestion.answer);
+}
+
+
