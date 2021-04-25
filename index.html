@@ -10,8 +10,37 @@
   </head>
 
   <body>
+    <!-- Header with highscores link and timer -->
+    <header>
+      <div class="menu">
+        <a href="./highscores.html">View Highscores</a>
+      </div>
+      <div class="timer">Time: <span id="timer-count">75</span> seconds</div>
+    </header>
+ 
+    <!-- Question box -->
+    <main class="quizCard">
 
+      <div class="questionBox" id="questions">
+        <h2>Coding Quiz Challenge</h2>
+        <br>
+        <p>Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+        <br>
+        <ul class="choices"></ul>
+        <br>
+        <button id="startQuiz">Start Quiz</button>
+      </div>
+      
+    </main>
 
+    <br>
+    <br>
 
-    
+    <!-- <div class="answerConfirm">
+      That was the CORRECT answer!
+    </div> -->
+
+    <script src="./assets/js/script.js"></script>
   </body>
+
+</html>

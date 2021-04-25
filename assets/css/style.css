@@ -1,3 +1,8 @@
+:root {
+  --ivory: ivory;
+  --blue: blue;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,11 +14,40 @@
   }
   
   body {
-    min-height: 100%;
-    line-height: 1;
-    font-family: sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    
   }
   
+  header {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 10px;
+  }
+
+  main {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 200px;
+    border: solid;
+    padding: 10px;
+    justify-content: center;
+  }
+  
+  hr {
+    width: 50%;
+    text-align: center;
+  }
+
+  .quizCard {
+  }
+
+
   h1,
   h2,
   h3,

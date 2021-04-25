@@ -14,7 +14,7 @@ This is the fouth assigment for MSU Coding Bootcamp; creating a coding quiz that
 
 ### Coding Quiz Screenshot
 
-![Application Screen Shot](./assets/images/screenshot-temp.gif)
+![Application Screen Shot](./assets/images/quiz_screenshot.png)
 
 ### Acceptance Criteria Summary
 

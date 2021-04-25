@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>High Scores</title>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Header with highscores link and timer -->
+    <header>
+        <div class="menu">
+          <a href="./highscores.html">View Highscores</a>
+        </div>
+        <div class="timer">Time: <span id="timer-count">75</span> seconds</div>
+      </header>
+   
+    <!-- High Scores list, with empty <ul> to append scores-->
+    <main class="quizCard">
+
+      <div class="questionBox" id="questions">
+        <h2>HIGH SCORES</h2>
+        <br>
+        <p>High scores will be listed here:</p>
+        <br>
+        <ul class="scoreList"></ul>
+        <button id="startQuiz">Re-Start Quiz</button>
+        <button id="clearScores">Clear High Scores</button>
+
+      </div>
+      
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+
