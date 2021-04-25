@@ -30,19 +30,24 @@ var questionsAll = [
 ];
 
 // Variables
-var timerElement = document.querySelector("#timer-count");
+var timerElement = document.getElementById("timer-count");
 var startButton = document.querySelector("#start-button");
 var quizQuestions = document.querySelector("#questions");
 var multipleChoice = document.querySelector(".choices");
+var timeLeft = 10;
+
+
+function countdown() {
+  var timeInterval = setInterval(function () {
+    timeLeft--;
+    timerElement.textContent = timeLeft + " seconds";
+
+    if (timeLeft === 0) {
+      clearInterval(timeInterval);
+      timerElement.textContent = "TIME'S UP!";
+    }
+  }, 1000);
+}
 
 // Adds event listener to start quiz and timer on button click
-startButton.addEventListener("click", function() {
-  timerElement--;
-  timerElement.textContent = timerElement
-})
-
-// Add the setTimer function to start and stop the timer
-function startTimer() {
-
-}
-// Shit.  Not done.  Will finish tomorrow.
+startButton.addEventListener("click", countdown());
