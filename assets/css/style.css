@@ -30,7 +30,6 @@
 
   main {
     margin: 0 auto;
-    border: solid;
     display: flex;
     flex-direction: row;
     width: 50%;
@@ -42,7 +41,7 @@
 
   h1,
   h2{
-    margin: 
+    margin: 20px;
     font-size: 1.5rem;
   }
   
