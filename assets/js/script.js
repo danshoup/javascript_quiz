@@ -4,28 +4,28 @@
 var questionData = [
   {
     question: "Commonly used data types DO NOT include:",
-    choice: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts"
+    choice: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+    answer: "3. alerts"
   },
   {
     question: "The condition in an 'if/else' statement is enclosed within ____________.",
-    choice: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses"
+    choice: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
+    answer: "3. parentheses"
   },
   {
     question: "Arrays in JavaScript can be used to store ____________.",
-    choice: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-    answer: "all of the above"
+    choice: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
+    answer: "4.  all of the above"
   },
   {
     question: "String vavlues must be enclosed within _______________ when being assigned to variables.",
-    choice: ["commas", "curly braackets", "quotes", "parentheses"],
-    answer: "quotes"
+    choice: ["1. commas", "2. curly braackets", "3. quotes", "4. parentheses"],
+    answer: "3. quotes"
   },
   {
     question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-    choice: ["JavaScript", "terminal/bash", "for loops", "console log"],
-    answer: "console log"
+    choice: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console log"],
+    answer: "4. console log"
   },
 ];
 
@@ -43,6 +43,7 @@ var mult1 = document.querySelector("#choice1");
 var mult2 = document.querySelector("#choice2");
 var mult3 = document.querySelector("#choice3");
 var mult4 = document.querySelector("#choice4");
+var ansConfirm = document.querySelector(".answerConfirm");
 var timeLeft = 76;
 var score = 0;
 var questionIndex = 0;
@@ -77,10 +78,23 @@ function() {
 
 
 function startQuiz() {
+    // Changes the correct answer based on the current question array index
+  var currentAnswer = currentQuestion.answer;
+  console.log(currentAnswer);
+
   var listButton = document.querySelectorAll(".lstBtn");
+
   for (i of listButton) {
     i.addEventListener("click", function(){
-      console.log("it's about damn time");
+      if (this.textContent === currentAnswer) {
+        console.log("CORRECT");
+        ansConfirm.textContent = "That is CORRECT!"
+        score+10;
+        questionIndex++;
+      } else {
+        timeLeft-= 10;
+        ansConfirm.textContent = "Sorry, that is the WRONG asnwer..."
+      }
     });
   }
 
@@ -90,14 +104,11 @@ function startQuiz() {
   quizQuestions.textContent = currentQuestion.question;
   
   // Changes each list item to one of the possilbe answers for question
-  mult1.textContent = "1. " + choiceData[0];
-  mult2.textContent = "2. " + choiceData[1];
-  mult3.textContent = "3. " + choiceData[2];
-  mult4.textContent = "4. " + choiceData[3];
+  mult1.textContent = choiceData[0];
+  mult2.textContent = choiceData[1];
+  mult3.textContent = choiceData[2];
+  mult4.textContent = choiceData[3];
   
-  // Changes the correct answer based on the current question array index
-  var currentAnswer = currentQuestion.answer;
-  console.log(currentAnswer);
 
 }
 
