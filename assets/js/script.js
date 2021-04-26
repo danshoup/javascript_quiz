@@ -35,19 +35,28 @@ var questionData = [
 
 var timerElement = document.querySelector("#timer-count");
 var startButton = document.querySelector("#start-button");
+var listButton = document.querySelector(".lstBtn");
 var quizBox = document.querySelector(".questionBox");
 var quizQuestions = document.querySelector("#questions");
-var multipleChoice = document.querySelector(".choices");
+var multipleChoice = document.querySelector("#choiceList");
 var listItems = document.querySelector(".items");
 var timeLeft = 76;
-var questionIndex = 0;
+var questionIndex = 1;
+var mult1 = document.querySelector("#choice1");
+var mult2 = document.querySelector("#choice2");
+var mult3 = document.querySelector("#choice3");
+var mult4 = document.querySelector("#choice4");
 
+function init() {
+  multipleChoice.style.display = "none";
+}
 
 // Adds event listener to start quiz and timer on button click
 startButton.addEventListener("click", 
 // Timer function set, and stops running when reaching 0;
 function countdown() {
   startButton.style.display = "none";
+  multipleChoice.style.display = "block";
   var timeInterval = setInterval(function () {
     timeLeft--;
     timerElement.textContent = timeLeft + " seconds";
@@ -62,38 +71,30 @@ function countdown() {
 
 });
 
-function getQuestion() {
-  for (var i = 0; i < questionData.length; i++) {
-    questionIndex = ;
-    console.log(questionData[i]);
-  }
-}
+// function getQuestion() {
+//   for (var i = 0; i < questionData.length; i++) {
+//     questionIndex = 
+//     console.log(questionData[i]);
+//   }
+// }
 
 
 function startQuiz() {
-  getQuestion();
   // Current question is the index of the question that will be displayed from the question array
   var currentQuestion = questionData[questionIndex];
   // Changes text content in the quizBox to current index question
   quizQuestions.textContent = currentQuestion.question;
-  makeChoiceList();
-  // Displays multiple choices from the current question index
-  function makeChoiceList(choiceData) {
-    var choiceData = questionData[questionIndex].choice;
-    var list = document.createElement("ul");
-    for (var j = 0; j < choiceData.length; j++) {
-      var item = document.createElement("li");
-      item.appendChild(document.createTextNode(choiceData[j]));
-      list.appendChild(item);
-    }
-    return list;
-  }
-  
-  quizBox.appendChild(makeChoiceList());
+  // Changes each list item to one of the possilbe answers for question
+  var choiceData = questionData[questionIndex].choice;
+  mult1.textContent = "1. " + choiceData[0];
+  mult2.textContent = "2. " + choiceData[1];
+  mult3.textContent = "3. " + choiceData[2];
+  mult4.textContent = "4. " + choiceData[3];
 
+  
   console.log (currentQuestion.question);
   console.log (currentQuestion.choice);
   console.log (currentQuestion.answer);
 }
 
-
+init();
