@@ -39,14 +39,15 @@ var quizBox = document.querySelector(".questionBox");
 var quizQuestions = document.querySelector("#questions");
 var multipleChoice = document.querySelector("#choiceList");
 var listItems = document.querySelector(".items");
-var listButton = document.querySelector(".lstBtn");
 var mult1 = document.querySelector("#choice1");
 var mult2 = document.querySelector("#choice2");
 var mult3 = document.querySelector("#choice3");
 var mult4 = document.querySelector("#choice4");
 var timeLeft = 76;
 var score = 0;
-var questionIndex = 1;
+var questionIndex = 0;
+var currentQuestion = questionData[questionIndex];
+var choiceData = questionData[questionIndex].choice;
 
 
 // On page load init runs
@@ -57,7 +58,7 @@ function init() {
 // Adds event listener to start quiz and timer on button click
 startButton.addEventListener("click", 
 // Timer function set, and stops running when reaching 0;
-function countdown() {
+function() {
   startButton.style.display = "none";
   multipleChoice.style.display = "block";
   var timeInterval = setInterval(function () {
@@ -76,15 +77,19 @@ function countdown() {
 
 
 function startQuiz() {
+  var listButton = document.querySelectorAll(".lstBtn");
+  for (i of listButton) {
+    i.addEventListener("click", function(){
+      console.log("it's about damn time");
+    });
+  }
 
   // Current question is the index of the question that will be displayed from the question array
-  var currentQuestion = questionData[questionIndex];
 
   // Changes text content in the quizBox to current index question
   quizQuestions.textContent = currentQuestion.question;
   
   // Changes each list item to one of the possilbe answers for question
-  var choiceData = questionData[questionIndex].choice;
   mult1.textContent = "1. " + choiceData[0];
   mult2.textContent = "2. " + choiceData[1];
   mult3.textContent = "3. " + choiceData[2];
@@ -94,10 +99,6 @@ function startQuiz() {
   var currentAnswer = currentQuestion.answer;
   console.log(currentAnswer);
 
-  function getAnswer() {
-    console.log("get answer here");
-  }
-  // listButton.addEventListener("click", getAnswer());
 }
 
 
