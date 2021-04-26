@@ -1,5 +1,6 @@
 :root {
   --white: rgb(241, 241, 215);
+  --offWhite: antiquewhite;a
   --blue: blue;
 }
 
@@ -65,11 +66,13 @@
 
   .lstBtn {
     margin: 5px;
-    background-color: var(--white);
+    /* background-color: var(--white); */
+    border-radius: 8px;
+    transition: all 0.05s ease-in-out;
   }
 
-  .lstItem {
-
+  .lstBtn:hover {
+    box-shadow: inset 0px 0px 8px var(--blue), 0 0 15px var(--blue);
   }
 
   .answerConfirm {
@@ -79,5 +82,12 @@
   #start-button {
     padding: 10px;
     margin: 0 auto;
-    background-color: var(--white);
+    /* background-color: var(--white); */
+    border-radius: 8px;
+    transition: all 0.05s ease-in-out;
   }
+
+#start-button:hover {
+  box-shadow: inset 0px 0px 8px var(--blue), 0 0 15px var(--blue);
+
+}
