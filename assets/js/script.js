@@ -35,18 +35,21 @@ var questionData = [
 
 var timerElement = document.querySelector("#timer-count");
 var startButton = document.querySelector("#start-button");
-var listButton = document.querySelector(".lstBtn");
 var quizBox = document.querySelector(".questionBox");
 var quizQuestions = document.querySelector("#questions");
 var multipleChoice = document.querySelector("#choiceList");
 var listItems = document.querySelector(".items");
-var timeLeft = 76;
-var questionIndex = 0;
+var listButton = document.querySelector(".lstBtn");
 var mult1 = document.querySelector("#choice1");
 var mult2 = document.querySelector("#choice2");
 var mult3 = document.querySelector("#choice3");
 var mult4 = document.querySelector("#choice4");
+var timeLeft = 2;
+var score = 0;
+var questionIndex = 1;
 
+
+// On page load init runs
 function init() {
   multipleChoice.style.display = "none";
 }
@@ -83,11 +86,9 @@ function startQuiz() {
   mult2.textContent = "2. " + choiceData[1];
   mult3.textContent = "3. " + choiceData[2];
   mult4.textContent = "4. " + choiceData[3];
-
-  
-  console.log (currentQuestion.question);
-  console.log (currentQuestion.choice);
-  console.log (currentQuestion.answer);
+  // Changes the correct answer based on the current question array index
+  var currentAnswer = currentQuestion.answer;
+  console.log(currentAnswer);
 }
 
 init();
