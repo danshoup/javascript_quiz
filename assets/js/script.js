@@ -71,13 +71,6 @@ function countdown() {
 
 });
 
-// function getQuestion() {
-//   for (var i = 0; i < questionData.length; i++) {
-//     questionIndex = 
-//     console.log(questionData[i]);
-//   }
-// }
-
 
 function startQuiz() {
   // Current question is the index of the question that will be displayed from the question array
