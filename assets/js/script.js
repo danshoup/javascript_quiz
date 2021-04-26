@@ -44,7 +44,7 @@ var mult1 = document.querySelector("#choice1");
 var mult2 = document.querySelector("#choice2");
 var mult3 = document.querySelector("#choice3");
 var mult4 = document.querySelector("#choice4");
-var timeLeft = 2;
+var timeLeft = 76;
 var score = 0;
 var questionIndex = 1;
 
@@ -76,19 +76,29 @@ function countdown() {
 
 
 function startQuiz() {
+
   // Current question is the index of the question that will be displayed from the question array
   var currentQuestion = questionData[questionIndex];
+
   // Changes text content in the quizBox to current index question
   quizQuestions.textContent = currentQuestion.question;
+  
   // Changes each list item to one of the possilbe answers for question
   var choiceData = questionData[questionIndex].choice;
   mult1.textContent = "1. " + choiceData[0];
   mult2.textContent = "2. " + choiceData[1];
   mult3.textContent = "3. " + choiceData[2];
   mult4.textContent = "4. " + choiceData[3];
+  
   // Changes the correct answer based on the current question array index
   var currentAnswer = currentQuestion.answer;
   console.log(currentAnswer);
+
+  function getAnswer() {
+    console.log("get answer here");
+  }
+  // listButton.addEventListener("click", getAnswer());
 }
+
 
 init();
