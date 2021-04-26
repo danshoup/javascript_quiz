@@ -1,5 +1,5 @@
 :root {
-  --white: antiquewhite;
+  --white: rgb(241, 241, 215);
   --blue: blue;
 }
 
@@ -48,6 +48,7 @@
   p {
     margin: 10px;
     padding: 20px;
+    font-size: 20px;
   }
 
   ul {
@@ -63,8 +64,8 @@
   }
 
   .lstBtn {
-    padding: 5px;
     margin: 5px;
+    background-color: var(--white);
   }
 
   .lstItem {
@@ -73,4 +74,10 @@
 
   .answerConfirm {
     margin-top: 20px;
+  }
+
+  #start-button {
+    padding: 10px;
+    margin: 0 auto;
+    background-color: var(--white);
   }
