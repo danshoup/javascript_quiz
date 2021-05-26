@@ -31,6 +31,10 @@ var questionData = [
 
 // Variables
 
+var reStartButton = document.querySelector("#reStart");
+var clearHighScores = document.querySelector("#clearScores");
+var listButton = document.querySelectorAll(".lstBtn");
+var listItemTxt = document.querySelectorAll(".lstItem");
 
 
 var timerElement = document.querySelector("#timer-count");
@@ -47,9 +51,9 @@ var ansConfirm = document.querySelector(".answerConfirm");
 var timeLeft = 76;
 var score = 0;
 var questionIndex = 0;
-var currentQuestion = questionData[questionIndex];
+var currentQuestion = questionData[questionIndex].question;
 var choiceData = questionData[questionIndex].choice;
-
+var currentAnswer = questionData[questionIndex].answer
 
 // On page load init runs
 function init() {
@@ -57,60 +61,65 @@ function init() {
 }
 
 // Adds event listener to start quiz and timer on button click
-startButton.addEventListener("click", 
+startButton.addEventListener("click", startQuiz);
+
+// Adds event listener to listen for button click on answer selection
+// listButton.addEventListener("click", checkQuestion);
+listButton.forEach(listButton => listButton.addEventListener("click", checkQuestion));
+
 // Timer function set, and stops running when reaching 0;
-function() {
+function startQuiz() {
   startButton.style.display = "none";
   multipleChoice.style.display = "block";
   var timeInterval = setInterval(function () {
     timeLeft--;
     timerElement.textContent = timeLeft + " seconds";
     
-       if (timeLeft === 0) {
+       if (timeLeft <= 0) {
       clearInterval(timeInterval);
       timerElement.textContent = "TIME'S UP!";
     }
   }, 1000);
+
   // Quiz questions start displaying when start button is pushed
-  startQuiz();
+  getQuestion();
 
-});
+};
 
-
-function startQuiz() {
-    // Changes the correct answer based on the current question array index
-  var currentAnswer = currentQuestion.answer;
+function getQuestion() {
+  console.log(currentQuestion);
+  console.log(choiceData);
   console.log(currentAnswer);
 
-  var listButton = document.querySelectorAll(".lstBtn");
-
-  for (i of listButton) {
-    i.addEventListener("click", function(){
-      if (this.textContent === currentAnswer) {
-        console.log("CORRECT");
-        ansConfirm.textContent = "That is CORRECT!"
-        score+10;
-        questionIndex++;
-      } else {
-        timeLeft-= 10;
-        ansConfirm.textContent = "Sorry, that is the WRONG asnwer..."
-      }
-    });
+  for (var i = 0; i < questionData.length; i++) {
+    // Current question is the index of the question that will be displayed from the question array
+    // Changes text content in the quizBox to current index question
+    quizQuestions.textContent = currentQuestion;
+    // Changes each list item to one of the possible answers for question
+    mult1.textContent = choiceData[0];
+    mult2.textContent = choiceData[1];
+    mult3.textContent = choiceData[2];
+    mult4.textContent = choiceData[3];  
   }
-
-  // Current question is the index of the question that will be displayed from the question array
-
-  // Changes text content in the quizBox to current index question
-  quizQuestions.textContent = currentQuestion.question;
-  
-  // Changes each list item to one of the possilbe answers for question
-  mult1.textContent = choiceData[0];
-  mult2.textContent = choiceData[1];
-  mult3.textContent = choiceData[2];
-  mult4.textContent = choiceData[3];
-  
-
 }
 
+function checkQuestion() {
+  if (listItemTxt.innerText === currentAnswer) {
+    console.log("CORRECT");
+    ansConfirm.textContent = "That is CORRECT!"
+    score+10;
+  } else {
+    timeLeft-10;
+    ansConfirm.textContent = "Sorry, that is the WRONG asnwer...";
+    console.log("WRONG!");
+  };
+  questionIndex++;
+  currentAnswer = questionData[questionIndex].answer
+  currentQuestion = questionData[questionIndex].question;
+  choiceData = questionData[questionIndex].choice;
+
+  getQuestion();
+}
 
 init();
+ 
