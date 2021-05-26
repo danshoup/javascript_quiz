@@ -87,9 +87,6 @@ function startQuiz() {
 };
 
 function getQuestion() {
-  console.log(currentQuestion);
-  console.log(choiceData);
-  console.log(currentAnswer);
 
   for (var i = 0; i < questionData.length; i++) {
     // Current question is the index of the question that will be displayed from the question array
@@ -104,7 +101,9 @@ function getQuestion() {
 }
 
 function checkQuestion() {
-  if (listItemTxt.innerText === currentAnswer) {
+  console.log(listItemTxt[2].textContent);
+
+  if (listItemTxt[2].textContent === currentAnswer) {
     console.log("CORRECT");
     ansConfirm.textContent = "That is CORRECT!"
     score+10;
@@ -117,6 +116,7 @@ function checkQuestion() {
   currentAnswer = questionData[questionIndex].answer
   currentQuestion = questionData[questionIndex].question;
   choiceData = questionData[questionIndex].choice;
+  console.log(score);
 
   getQuestion();
 }
